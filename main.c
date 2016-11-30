@@ -2,6 +2,8 @@
 #include <allegro.h>
 #include "menu.h"
 
+volatile int exit_program;
+
 int main()
 {
    allegro_init(); //Inicializa itens básicos da biblioteca
@@ -15,7 +17,7 @@ int main()
 
    {
 	 menu_displayMenu(screen);
-	 //
+	 menu_updateMenu();
    }
 
    return 0;
