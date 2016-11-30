@@ -9,15 +9,16 @@ int bY2[10][10];
 int colVM[10][10];
 int colVD[10][10];
 int colAZ[10][10];
+BITMAP* buffer;
   
 void povoamento(){
 	int i, j, col1 = 0, col2 = 125, col3 = 250;
   for(i=0; i<10; i++){
     for(j=0; j<10; j++){
-      int bX1[i][j] = 20 + (j*190);
-  		int bX2[i][j] = 20 + (j*190) + 180;
-  		int bY1[i][j] = 20 + (i*100);
-  		int bY2[i][j] = 20 + (i*100) + 90;
+      bX1[i][j] = 20 + (j*190);
+  		bX2[i][j] = 20 + (j*190) + 180;
+  		bY1[i][j] = 20 + (i*100);
+  		bY2[i][j] = 20 + (i*100) + 90;
       colVM[i][j] = col1;
 			colVM[i][j] = col2;
 			colAZ[i][j] = col3;
@@ -38,7 +39,7 @@ int main()
   set_gfx_mode(GFX_AUTODETECT_WINDOWED, 1920, 1080, 0, 0); //Setar Vídeo (Driver de vídeo, 800x600 de resolução, 0 e 0 parâmetros para tela virtual) 
   set_window_title("Brick Braker"); //Título da janela
   
-	BITMAP* buffer = create_bitmap(SCREEN_W, SCREEN_H);
+	buffer = create_bitmap(SCREEN_W, SCREEN_H);
 	exit_program = FALSE;
   povoamento();
   draw_sprite(screen, buffer, 0, 0);
@@ -47,7 +48,7 @@ int main()
   {
      //INPUT
       if(key[KEY_ESC])
-       fecha_programa();
+       exit_program = TRUE;
 
      //UPDATE
 
