@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <allegro.h>
+#include "menu.h"
 
 int main()
 {
@@ -13,7 +14,7 @@ int main()
    while(!key[KEY_ESC]) //Enquanto key ESC não pressionada. KEY_ESC é um define para o número da tecla ESC
 
    {
-	 textout_centre_ex(screen, font, "Hello World!", SCREEN_W/2, SCREEN_H/2, makecol(255, 255, 255), -1);
+	 menu_displayMenu(screen);
 	 //
    }
 
