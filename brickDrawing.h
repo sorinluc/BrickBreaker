@@ -1,11 +1,16 @@
 #include <allegro.h>
 
-int bX1[8][10];
-int bX2[8][10];
-int bY1[8][10];
-int bY2[8][10];
-int colVM[10][10];
-int colVD[10][10];
-int colAZ[10][10];
+struct brickers {
+  int bX1;
+	int bX2;
+	int bY1;
+	int bY2;
+	int colVM;
+	int colVD;
+	int colAZ;
+  int bit;
+}
 
-void povoamento();
+struct brickers brick[8][10];
+
+void povoamento(BITMAP* buffer);
