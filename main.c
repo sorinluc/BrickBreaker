@@ -4,6 +4,7 @@
 
 volatile int exit_program;
 
+
 int main()
 {
   
@@ -19,3 +20,5 @@ int main()
   return 0;
 }
 END_OF_MAIN();
+
+//gcc -Wall <arquivo.c> -o programa -lalleg
