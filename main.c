@@ -15,23 +15,19 @@ void povoamento(){
 	int i, j, col1 = 0, col2 = 125, col3 = 250;
   for(i=0; i<10; i++){
     for(j=0; j<10; j++){
-      bY1[i][j] = 20 + (j*190);
-  		bY2[i][j] = 20 + (j*190) + 180;
-  		bX1[i][j] = 20 + (i*100);
-  		bX2[i][j] = 20 + (i*100) + 90;
+      bX1[i][j] = 20 + (j*180);
+      bY1[i][j] = 20 + (i*90);
+      bX2[i][j] = 20 + (j*180) + 180;
+  		bY2[i][j] = 20 + (i*90) + 90;
       colVM[i][j] = col1;
-			colVM[i][j] = col2;
+			colVD[i][j] = col2;
 			colAZ[i][j] = col3;
-      rectfill(buffer, bX1[i][j], bX2[i][j], bY1[i][j], bY2[i][j], makecol(colVM[i][j],colVM[i][j],colAZ[i][j]));
+      rectfill(buffer, bX1[i][j], bY1[i][j], bX2[i][j], bY2[i][j], makecol(colVM[i][j],colVD[i][j],colAZ[i][j]));
       col1 += 25;
       col2 += 10;
       col3 -= 25;
     }
   }
-}
-
-void bolinha(char ){
-  
 }
 
 int main()
@@ -66,3 +62,5 @@ int main()
   return 0;
 }
 END_OF_MAIN();
+
+//gcc -Wall <arquivo.c> -o programa -lalleg
