@@ -30,13 +30,13 @@ void menu_displayMenu (BITMAP* target) {
 		{
 			textprintf_ex(
 			target, font, SCREEN_W / 2, SCREEN_H / 4 + i * menuGap,
-			menuSelectedItemColor, -1, menuItems[i]);
+			menuSelectedItemColor, -1, menuItems[i], NULL);
 		}
 		else
 		{
 			textprintf_ex(
 			target, font, SCREEN_W / 2, SCREEN_H / 4 + i * menuGap,
-			menuUnselectedItemColor, -1, menuItems[i]);
+			menuUnselectedItemColor, -1, menuItems[i], NULL);
 		}
 		
 	}
@@ -45,7 +45,7 @@ void menu_displayMenu (BITMAP* target) {
 
 void menu_itemSelected()
 {
-	static int (*actions[]) () = 
+	static void (*actions[]) () = 
 	{
 		&menu_newGameAction,
 		&menu_optionsAction,
