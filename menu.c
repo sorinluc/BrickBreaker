@@ -5,7 +5,7 @@ void menu_displayMenu (BITMAP* target) {
 	int i=0;
 	for (i=0; i<menuitemcount; i++)
 	{
-		textout_centre_ex(
+		textprintf_ex(
 			target, font, menuItems[i],
 			SCREEN_W / 2, SCREEN_H / 2,
 			makecol(255, 0, 0), makecol(0, 0, 0));

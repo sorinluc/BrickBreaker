@@ -1,6 +1,6 @@
 #include <allegro.h>
 
-const char* menuItems[] = 
+static const char* menuItems[] = 
 {
 	"New Game",
 	"Options",
