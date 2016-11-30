@@ -18,25 +18,28 @@ int main()
   set_gfx_mode(GFX_AUTODETECT_WINDOWED, 1920, 1080, 0, 0); //Setar Vídeo (Driver de vídeo, 800x600 de resolução, 0 e 0 parâmetros para tela virtual) 
   set_window_title("Brick Breaker"); //Título da janela
   
-   exit_program = FALSE;
-  povoamento();
+  BITMAP* buffer = create_bitmap(SCREEN_W, SCREEN_H);
+  exit_program = FALSE;
+  povoamento(buffer);
+  
+  int x = 0, y = 0;
   
   while(!exit_program)
   {
-     //INPUT
-      if(key[KEY_ESC])
-       exit_program = TRUE;
-
-     //UPDATE
-
-     //DRAW
-     //clear(buffer);
+  //INPUT
+    if(key[KEY_ESC])
+      exit_program = TRUE;
+  //UPDATE
+    if(key[KEY_M]){
+      breakbrick(buffer, x, y);
+      x++;
+      y++;
+    {
+  //DRAW
   }
 
-  ///FINALIZAÇÃO
-
+  //FINALIZAÇÃO
+  destroy_bitmap(buffer);
   return 0;
 }
 END_OF_MAIN();
-
-//gcc -Wall <arquivo.c> -o programa -lalleg
