@@ -2,9 +2,13 @@
 #include <allegro.h>
 
 void povoamento(){
+  BITMAP* buffer = create_bitmap(SCREEN_W, SCREEN_H);
 	int i, j, col1 = 0, col2 = 125, col3 = 250;
-  for(i=0; i<8; i++){
-    for(j=0; j<10; j++){
+
+  for(i=0; i<8; i++)
+  {
+    for(j=0; j<10; j++)
+    {
       bX1[i][j] = 20 + (j*190);
       bY1[i][j] = 20 + (i*50);
       bX2[i][j] = 20 + (j*190) + 180;
@@ -19,4 +23,7 @@ void povoamento(){
     }
   }
   draw_sprite(screen, buffer, 0, 0);
+  destroy_bitmap(buffer);
+
+  return;
 }
