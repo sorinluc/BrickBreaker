@@ -5,12 +5,12 @@ int options_batColor = 0;
 
 void displayBat(BITMAP* buffer, int xPos, int size)
 {
+	int color;
+	
 	switch (options_batColor)
 	{
 		case 0:
-			rectfill(
-				buffer, (xPos-size/2),(SCREEN_H - (BAT_Y_OFFSET + BAT_HEIGTH)),
-				(xPos+size/2), (SCREEN_H - BAT_Y_OFFSET), makecol(255, 193, 0));
+			color = makecol(255, 193, 0);
 		break;
 
 		case 1:
@@ -30,12 +30,18 @@ void displayBat(BITMAP* buffer, int xPos, int size)
 		break;
 
 		default:
-			rectfill(
-				buffer, (xPos-size/2), BAT_Y_OFFSET + BAT_HEIGTH,
-				(xPos+size/2), BAT_Y_OFFSET, makecol(255, 193, 0));
+			color = makecol(255, 193, 0);
 		break;
 
 	}
+
+	rectfill(
+		buffer,
+		(xPos-size/2), SCREEN_H - (BAT_Y_OFFSET + BAT_HEIGTH),
+		(xPos+size/2), (SCREEN_H - BAT_Y_OFFSET),
+		color);
+
+	return;
 }
 
 /*BITMAP* loadBatStyle()
