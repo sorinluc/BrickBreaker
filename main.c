@@ -9,7 +9,7 @@ void bolinha(){
 }
 
 int main()
-{ 
+{
   
   allegro_init(); //Inicializa itens básicos da biblioteca
   install_timer(); //Timers necessários para áudio, mouse...
@@ -24,7 +24,7 @@ int main()
   
   int x = 0, y = 0;
   
-  while(!exit_program)
+  while(exit_program == FALSE)
   {
   //INPUT
     if(key[KEY_ESC])
@@ -34,7 +34,7 @@ int main()
       breakbrick(buffer, x, y);
       x++;
       y++;
-    {
+    }
   //DRAW
   }
 
@@ -43,3 +43,5 @@ int main()
   return 0;
 }
 END_OF_MAIN();
+
+//gcc -Wall <arquivo.c> -o programa -lalleg
