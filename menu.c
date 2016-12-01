@@ -1,6 +1,8 @@
 #include "menu.h"
 #include "functions.h"
 
+extern int exit_program;
+
 static const char* menuItems[] = 
 {
 	"New Game",
@@ -90,7 +92,7 @@ void menu_optionsAction()
 
 void menu_quitAction()
 {
-	allegro_exit();
+	exit_program = TRUE;
 	return;
 }
 
