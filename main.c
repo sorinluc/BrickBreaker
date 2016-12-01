@@ -14,9 +14,7 @@ int main()
   
   BITMAP* buffer = create_bitmap(SCREEN_W, SCREEN_H);
   int exit_program = 0;
-  povoamento(buffer);
-  
-  int x = 0, y = 0;
+  povoamento();
   
   while(exit_program == 0){
   //INPUT
@@ -24,15 +22,10 @@ int main()
       exit_program = 1;
     }
   //UPDATE
-    printBrick();
     bolinha();
-    if(key[KEY_M]){
-      key[KEY_M]) = 0;
-      breakbrick(x,y);
-      x++;
-      y++;
-    }
+    breakbrick();
   //DRAW
+    printBrick(buffer);
   }
   //FINALIZAÇÃO
   destroy_bitmap(buffer);
