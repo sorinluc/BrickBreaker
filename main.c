@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <allegro.h>
 #include "menu.h"
+#include "globals.h"
 
 volatile int exit_program;
 
