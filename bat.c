@@ -3,6 +3,7 @@
 
 int options_batColor = 0;
 int options_batSize = BAT_SIZE_MEDIUM;
+int batPosition = 500;
 
 void displayBat(BITMAP* buffer, int xPos, int size)
 {
@@ -88,7 +89,6 @@ void displayBat(BITMAP* buffer, int xPos, int size)
 
 int updateBatPosition()
 {
-	static int batPosition = 500;
 
 	if (key[KEY_LEFT] && ((batPosition - options_batSize/2) >= 0))
 	{
