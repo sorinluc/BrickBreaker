@@ -1,7 +1,7 @@
 #include "bat.h"
 #include "options.h"
 
-int options_batColor = 1;
+int options_batColor = 0;
 
 void displayBat(BITMAP* buffer, int xPos, int yPos, int size)
 {
@@ -10,29 +10,35 @@ void displayBat(BITMAP* buffer, int xPos, int yPos, int size)
 
 BITMAP* loadBatStyle()
 {
-	BITMAP* batImg;
+	BITMAP *batImg;
+	options_batColor = 0;
 
 	switch (options_batColor)
 	{
 		case 0:
-			batImg = load_bitmap("./rsc/Pack/Bats/bat_yellow.png", NULL);
+			batImg = load_bitmap("./rsc/Pack/Bats/bat_yellow.pcx", NULL);
 		break;
 
 		case 1:
-			batImg = load_bitmap("./rsc/Pack/Bats/bat_black.png", NULL);
+			batImg = load_bitmap("./rsc/Pack/Bats/bat_black.pcx", NULL);
 		break;
 
 		case 2:
-			batImg = load_bitmap("./rsc/Pack/Bats/bat_blue.png", NULL);
+			batImg = load_bitmap("./rsc/Pack/Bats/bat_blue.pcx", NULL);
 		break;
 
 		case 3:
-			batImg = load_bitmap("./rsc/Pack/Bats/bat_orange.png", NULL);
+			batImg = load_bitmap("./rsc/Pack/Bats/bat_orange.pcx", NULL);
 		break;
 
 		case 4:
-			batImg = load_bitmap("./rsc/Pack/Bats/bat_rose.png", NULL);
+			batImg = load_bitmap("./rsc/Pack/Bats/bat_rose.pcx", NULL);
 		break;
+
+		default:
+			batImg = load_bitmap("./rsc/Pack/Bats/bat_yellow.pcx", NULL);
+		break;
+
 	}
 
 	if (!batImg)
