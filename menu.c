@@ -105,6 +105,7 @@ void menu_newGameAction()
     blit(batBuffer, screen, 0, 0, 0, SCREEN_H - BAT_Y_OFFSET, batBuffer->w, batBuffer->h);
 
   }
+  	destroy_bitmap(batBuffer);
 
 	return;
 }
