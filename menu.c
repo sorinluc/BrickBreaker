@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "bat.h"
 #include <allegro.h>
+#include "options.h"
 
 extern int exit_program;
 
@@ -100,7 +101,6 @@ void menu_quitAction()
 
 void menu_debugAction()
 {
-	BITMAP* batImg = loadBatStyle();
-	blit(batImg, screen, 0, 0, (SCREEN_W /2 - batImg->w / 2), 150, batImg->w, batImg->h);
+	displayBat(screen, SCREEN_W/2, BAT_SIZE_MEDIUM);
 	return;
 }
