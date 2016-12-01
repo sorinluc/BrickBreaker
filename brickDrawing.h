@@ -14,3 +14,4 @@ struct brickers {
 struct brickers brick[8][10];
 
 void povoamento(BITMAP* buffer);
+void breakbrick(BITMAP* buffer, int Bi, int Bj);
