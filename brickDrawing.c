@@ -26,8 +26,9 @@ void povoamento(BITMAP* buffer){
   return;
 }
 
-void breakbrick(BITMAP* buffer,int Bi, int Bj){
+void breakbrick(BITMAP* buffer, int Bi, int Bj){
   brick[Bi][Bj].bit = 0;
   rectfill(buffer, brick[Bi][Bj].bX1, brick[Bi][Bj].bY1, brick[Bi][Bj].bX2, brick[Bi][Bj].bY2, makecol(0,0,0));
   draw_sprite(screen, buffer, 0, 0);
+  return;
 }
