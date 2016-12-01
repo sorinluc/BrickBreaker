@@ -84,7 +84,20 @@ void menu_updateMenu()
 
 void menu_newGameAction()
 {
+	int gameOver = FALSE;
 	allegro_message("New game, new fame!\n");
+	clear(screen);
+
+	while(!gameOver)
+  {
+    if(key[KEY_ESC])
+      exit_program = TRUE;
+
+  	clear(screen);
+    displayBat(screen, updateBatPosition(), BAT_SIZE_MEDIUM);
+
+  }
+
 	return;
 }
 

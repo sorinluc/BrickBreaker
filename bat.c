@@ -2,6 +2,7 @@
 #include "options.h"
 
 int options_batColor = 0;
+int options_batSize = BAT_SIZE_MEDIUM;
 
 void displayBat(BITMAP* buffer, int xPos, int size)
 {
@@ -37,8 +38,8 @@ void displayBat(BITMAP* buffer, int xPos, int size)
 
 	rectfill(
 		buffer,
-		(xPos-size/2), SCREEN_H - (BAT_Y_OFFSET + BAT_HEIGTH),
-		(xPos+size/2), (SCREEN_H - BAT_Y_OFFSET),
+		(xPos-size/2), SCREEN_H - BAT_Y_OFFSET - BAT_HEIGTH,
+		(xPos+size/2), SCREEN_H - BAT_Y_OFFSET,
 		color);
 
 	return;
@@ -84,3 +85,20 @@ void displayBat(BITMAP* buffer, int xPos, int size)
 	
 }
 */
+
+int updateBatPosition()
+{
+	static int batPosition = 500;
+
+	if (key[KEY_LEFT] && ((batPosition - options_batSize/2) >= 0))
+	{
+		batPosition -= BAT_MOVEMENT_STEP;
+	}
+
+	if (key[KEY_RIGHT] && ((batPosition + options_batSize/2) <= SCREEN_W))
+	{
+		batPosition += BAT_MOVEMENT_STEP;
+	}
+
+	return batPosition;
+}

@@ -15,7 +15,7 @@ int main()
    install_keyboard(); //Instalando teclado
    set_color_depth(32); //Setar profundidade das cores (32 bits p/ combinações de cores
    if (get_desktop_resolution(&resWidth, &resHeigth) == 0) {
-         set_gfx_mode(GFX_AUTODETECT_WINDOWED, resWidth, resWidth, 0, 0); //Setar Vídeo (Driver de vídeo, 800x600 de resolução, 0 e 0 parâmetros para tela virtual) 
+         set_gfx_mode(GFX_AUTODETECT_WINDOWED, resWidth, resHeigth, 0, 0); //Setar Vídeo (Driver de vídeo, 800x600 de resolução, 0 e 0 parâmetros para tela virtual) 
       }
    else
    {
@@ -38,11 +38,11 @@ int main()
 
   while(!(exit_program == TRUE))
   {
-     //INPUT
-   if(key[KEY_ESC])
+    if(key[KEY_ESC])
       exit_program = TRUE;
-   menu_displayMenu(screen);
-	menu_updateMenu();
+
+    menu_displayMenu(screen);
+    menu_updateMenu();
 
   }
   return 0;

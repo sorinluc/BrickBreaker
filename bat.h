@@ -7,3 +7,6 @@ void displayBat(BITMAP* buffer, int xPos, int size);
 /* Loads the correct image based on the options */
 //BITMAP* loadBatStyle();
 
+
+int updateBatPosition();
+
