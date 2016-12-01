@@ -2,12 +2,6 @@
 #include <allegro.h>
 #include "brickDrawing.h"
 
-volatile int exit_program;
-
-
-void bolinha(){
-}
-
 int main()
 {
   
@@ -19,29 +13,29 @@ int main()
   set_window_title("Brick Breaker"); //Título da janela
   
   BITMAP* buffer = create_bitmap(SCREEN_W, SCREEN_H);
-  exit_program = FALSE;
+  int exit_program = 0;
   povoamento(buffer);
   
   int x = 0, y = 0;
   
-  while(exit_program == FALSE)
-  {
+  while(exit_program == 0){
   //INPUT
-    if(key[KEY_ESC])
-      exit_program = TRUE;
+    if(key[KEY_ESC]){
+      exit_program = 1;
+    }
   //UPDATE
+    printBrick();
+    bolinha();
     if(key[KEY_M]){
-      breakbrick(buffer, x, y);
+      key[KEY_M]) = 0;
+      breakbrick(x,y);
       x++;
       y++;
     }
   //DRAW
   }
-
   //FINALIZAÇÃO
   destroy_bitmap(buffer);
   return 0;
 }
 END_OF_MAIN();
-
-//gcc -Wall <arquivo.c> -o programa -lalleg
