@@ -9,7 +9,7 @@ struct brickers {
 	int colVD;
 	int colAZ;
   int bit;
-}
+};
 
 struct brickers brick[8][10];
 
