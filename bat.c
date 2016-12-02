@@ -1,5 +1,6 @@
 #include "bat.h"
 #include "options.h"
+#include <stdio.h>
 
 int options_batColor = 0;
 int options_batSize = BAT_SIZE_MEDIUM;
@@ -48,7 +49,7 @@ void displayBat(BITMAP* buffer, int xPos, int size)
 
 
 int updateBatPosition()
-{
+{	
 
 	if (key[KEY_LEFT] && ((batPosition - options_batSize/2) >= 0))
 	{

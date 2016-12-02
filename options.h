@@ -20,4 +20,4 @@ extern int options_batSize;
 #define BAT_HEIGTH 30
 
 /* Movement related */
-#define BAT_MOVEMENT_STEP 10
+#define BAT_MOVEMENT_STEP 20

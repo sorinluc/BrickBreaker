@@ -86,6 +86,7 @@ void menu_updateMenu()
 
 void menu_newGameAction()
 {
+	clear(screen);	
 	int newPos;
 	int gameOver = FALSE;
 	allegro_message("New game, new fame!\n");
@@ -105,6 +106,7 @@ void menu_newGameAction()
   	newPos =updateBatPosition();
     displayBat(batBuffer, newPos, BAT_SIZE_MEDIUM);
     draw_sprite(screen, batBuffer, 0, SCREEN_H - BAT_Y_OFFSET);
+    rest(10);
 
   }
   	destroy_bitmap(batBuffer);
