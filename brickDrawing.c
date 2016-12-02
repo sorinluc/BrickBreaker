@@ -5,6 +5,7 @@ void printBrick(BITMAP* buffer){
   int i, j;
   clear(buffer);
   circlefill(buffer, bola.bolX, bola.bolY, bola.bolR, makecol(255,0,0));
+  rectfill(buffer, barra.barX1, barra.barY1, barra.barX2, barra.barY2, makecol(0,255,0));
   for(i=Pcol - 1; i<Ucol; i++){
     for(j=Plinha - 1; j<Ulinha; j++){
       if(brick[i][j].bit == 1){
@@ -42,6 +43,12 @@ void povoamento(){
   bola.bolR = RAIO;
   bola.psB = -1;
   bola.psL = 1;
+  bola.incA = 1;
+  bola.incB = 1;
+  barra.barX1 = 0; 
+  barra.barY1 = ALT - 40;
+  barra.barX2 = 280;
+  barra.barY2 = ALT;
   return;
 }
 
@@ -90,24 +97,78 @@ void breakbrick(){
         col[i][j].setE = 0;
     }
   }
-  
   return;
 }
 
 void bolinha(){
-  bola.bolX = bola.bolX + (bola.psL*VEL);
-  bola.bolY = bola.bolY + (bola.psB*VEL);
-  if((bola.bolX + RAIO) == LARG){
+  bola.bolX = bola.bolX + (bola.psL*VEL)*bola.incB;
+  bola.bolY = bola.bolY + (bola.psB*VEL)*bola.incA;
+  if((bola.bolX + RAIO) >= LARG){
     bola.psL = -1;
   }
-  if((bola.bolX - RAIO) == 0){
+  if((bola.bolX - RAIO) <= 0){
     bola.psL = 1;
   }
-  if((bola.bolY + RAIO) == ALT){
+  if((bola.bolY + RAIO) >= ALT){
     bola.psB = -1;
   }
-  if((bola.bolY - RAIO) == 0){
+  if((bola.bolY - RAIO) <= 0){
     bola.psB = 1;
+  }
+  return;
+}
+
+void barrinha(){
+  if(key[KEY_A]){
+      key[KEY_A] = FALSE;
+      barra.barX1 -= 60; 
+      barra.barX2 -= 60;
+    }
+  else if(key[KEY_S]){
+      key[KEY_S] = FALSE;
+      barra.barX1 += 60; 
+      barra.barX2 += 60;
+    }
+return;
+}
+
+void barrabrick(){
+  if((bola.bolY + RAIO) >= (barra.barY1)){
+    if((bola.bolX >= barra.barX1) && (bola.bolX <= (barra.barX1 + 40))){
+      bola.psB = -1;
+      bola.incA = 1;
+      bola.incB = 3;
+    } 
+    if((bola.bolX > barra.barX1 + 40) && (bola.bolX <= (barra.barX1 + 80))){
+      bola.psB = -1;
+      bola.incA = 2;
+      bola.incB = 2;
+    }
+    if((bola.bolX > barra.barX1 + 80) && (bola.bolX <= (barra.barX1 + 120))){
+      bola.psB = -1;
+      bola.incA = 3;
+      bola.incB = 1;
+    }
+    if((bola.bolX > barra.barX1 + 120) && (bola.bolX <= (barra.barX1 + 160))){
+      bola.psB = -1;
+      bola.incA = 4;
+      bola.incB = 0;
+    }
+    if((bola.bolX > barra.barX1 + 160) && (bola.bolX <= (barra.barX1 + 200))){
+      bola.psB = -1;
+      bola.incA = 3;
+      bola.incB = 1;
+    }
+    if((bola.bolX > barra.barX1 + 200) && (bola.bolX <= (barra.barX1 + 240))){
+      bola.psB = -1;
+      bola.incA = 2;
+      bola.incB = 2;
+    }
+    if((bola.bolX > barra.barX1 + 240) && (bola.bolX <= (barra.barX1 + 280))){
+      bola.psB = -1;
+      bola.incA = 1;
+      bola.incB = 3;
+    }
   }
   return;
 }
