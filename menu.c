@@ -90,12 +90,13 @@ void menu_updateMenu()
 void menu_newGameAction()
 {
 	clear(screen);	
-	int newPos;
 	int gameOver = FALSE;
 	allegro_message("New game, new fame!\n");
 
 	if (!initBuffer())
-		allegro_message("Error : init batBuffer failed\n");
+		allegro_message("Error : init buffer failed\n");
+
+	povoamento();
 
 
 	while(!gameOver)
@@ -103,13 +104,16 @@ void menu_newGameAction()
     if(key[KEY_ESC])
       gameOver = TRUE;
 
-  	// bolinha();
-   //  breakbrick();
-   //  barrabrick();
-    //printBrick(buffer);
+  	clear(buffer);
 
-  	newPos = updateBatPosition();
-  	displayBat(buffer, newPos);
+  	bolinha();
+    breakbrick();
+    barrabrick();
+    printBrick(buffer);
+
+  	updateBatPosition();
+  	drawBat(buffer, batPosition, options_batSize);
+  	bufferToScreen();
     rest(10);
 
   }
@@ -143,4 +147,10 @@ int initBuffer()
 		return FALSE;
 
 	return TRUE;
+}
+
+
+void bufferToScreen()
+{
+	draw_sprite(screen, buffer, 0, 0);
 }

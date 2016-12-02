@@ -6,7 +6,7 @@
 
 void printBrick(BITMAP* buffer){
   int i, j;
-  clear(buffer);
+  //clear(buffer);
   circlefill(buffer, bola.bolX, bola.bolY, bola.bolR, makecol(255,0,0));
 
   for(i=Pcol - 1; i<Ucol; i++){
@@ -16,11 +16,14 @@ void printBrick(BITMAP* buffer){
       }
     }
   }
-  draw_sprite(screen, buffer, 0, 0);
   return;
 }
 
 void povoamento(){
+
+  int Blarg = (((SCREEN_W - 40) / (Ncol)) - MeB);
+  int Balt = ((((SCREEN_H/2) - 20) / (Nlinha)) - MeB);
+
   int i, j, col1 = 0, col2 = 125, col3 = 250;
   for(i=Pcol - 1; i<Ucol; i++){
     for(j=Plinha - 1; j<Ulinha; j++){
@@ -41,8 +44,8 @@ void povoamento(){
       col[i][j].setD=0;
     }
   }
-  bola.bolX = LARG / 2;
-  bola.bolY = ALT;
+  bola.bolX = SCREEN_W / 2;
+  bola.bolY = SCREEN_H;
   bola.bolR = RAIO;
   bola.psB = -1;
   bola.psL = 1;
@@ -102,13 +105,13 @@ void breakbrick(){
 void bolinha(){
   bola.bolX = bola.bolX + (bola.psL*VEL)*bola.incB;
   bola.bolY = bola.bolY + (bola.psB*VEL)*bola.incA;
-  if((bola.bolX + RAIO) >= LARG){
+  if((bola.bolX + RAIO) >= SCREEN_W){
     bola.psL = -1;
   }
   if((bola.bolX - RAIO) <= 0){
     bola.psL = 1;
   }
-  if((bola.bolY + RAIO) >= ALT){
+  if((bola.bolY + RAIO) >= SCREEN_H){
     bola.psB = -1;
   }
   if((bola.bolY - RAIO) <= 0){

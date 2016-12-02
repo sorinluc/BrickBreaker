@@ -19,3 +19,5 @@ void menu_debugAction();
 
 /* Init bat buffer */
 int initBuffer();
+
+void bufferToScreen();

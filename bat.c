@@ -52,7 +52,7 @@ void displayBat(BITMAP* buffer, int xPos)
 {
 	clear(buffer);
     drawBat(buffer, xPos, options_batSize);
-    draw_sprite(screen, buffer, 0, SCREEN_H - BAT_Y_OFFSET);
+    draw_sprite(screen, buffer, 0, 0);
 }
 
 

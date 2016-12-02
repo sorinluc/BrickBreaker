@@ -34,11 +34,11 @@ struct colisao {
 #define Ncol 22
 #define VEL 1
 #define RAIO 20
-#define LARG 1920
-#define ALT 900
+// #define LARG 1920
+// #define ALT 900
 #define MeB 10
-#define Blarg (((LARG - 40) / (Ncol)) - MeB)
-#define Balt ((((ALT/2) - 20) / (Nlinha)) - MeB)
+// #define Blarg (((LARG - 40) / (Ncol)) - MeB)
+// #define Balt ((((ALT/2) - 20) / (Nlinha)) - MeB)
 
 struct brickers brick[Ucol][Ulinha];
 struct bol bola;
