@@ -126,6 +126,7 @@ void barrabrick(){
 
   int batYTopPosition = SCREEN_H - (BAT_Y_OFFSET + BAT_HEIGTH);
   int batDivisionStep = options_batSize / 7;
+  printf("%d\n", batDivisionStep);
 
 
   if((bola.bolY + RAIO) >= (batYTopPosition)){
@@ -134,32 +135,32 @@ void barrabrick(){
       bola.incA = 1;
       bola.incB = 3;
     } 
-    else if((bola.bolX > batPosition + 40) && (bola.bolX <= (batPosition + 80))){
+    else if((bola.bolX > batPosition + batDivisionStep) && (bola.bolX <= (batPosition + batDivisionStep*2))){
       bola.psB = -1;
       bola.incA = 2;
       bola.incB = 2;
     }
-    else if((bola.bolX > batPosition + 80) && (bola.bolX <= (batPosition + 120))){
+    else if((bola.bolX > batPosition + batDivisionStep*2) && (bola.bolX <= (batPosition + batDivisionStep*3))){
       bola.psB = -1;
       bola.incA = 3;
       bola.incB = 1;
     }
-    else if((bola.bolX > batPosition + 120) && (bola.bolX <= (batPosition + 160))){
+    else if((bola.bolX > batPosition + batDivisionStep*3) && (bola.bolX <= (batPosition + batDivisionStep*4))){
       bola.psB = -1;
       bola.incA = 4;
       bola.incB = 0;
     }
-    else if((bola.bolX > batPosition + 160) && (bola.bolX <= (batPosition + 200))){
+    else if((bola.bolX > batPosition + batDivisionStep*4) && (bola.bolX <= (batPosition + batDivisionStep*5))){
       bola.psB = -1;
       bola.incA = 3;
       bola.incB = 1;
     }
-    else if((bola.bolX > batPosition + 200) && (bola.bolX <= (batPosition + 240))){
+    else if((bola.bolX > batPosition + batDivisionStep*5) && (bola.bolX <= (batPosition + batDivisionStep*6))){
       bola.psB = -1;
       bola.incA = 2;
       bola.incB = 2;
     }
-    else if((bola.bolX > batPosition + 240) && (bola.bolX <= (batPosition + 280))){
+    else if((bola.bolX > batPosition + batDivisionStep*6) && (bola.bolX <= (batPosition + batDivisionStep*7))){
       bola.psB = -1;
       bola.incA = 1;
       bola.incB = 3;
