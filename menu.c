@@ -3,7 +3,6 @@
 #include "bat.h"
 #include <allegro.h>
 #include "options.h"
-#include "globals.h"
 
 extern int exit_program;
 BITMAP *batBuffer;
@@ -93,9 +92,6 @@ void menu_newGameAction()
 
 	if (!initBatBuffer())
 		allegro_message("Error : init batBuffer failed\n");
-
-	allegro_message("Init OK!\n");
-
 
 	while(!gameOver)
   {
