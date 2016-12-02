@@ -23,7 +23,9 @@ int main()
     }
   //UPDATE
     bolinha();
+    barrinha();
     breakbrick();
+    barrabrick();
   //DRAW
     printBrick(buffer);
   }
