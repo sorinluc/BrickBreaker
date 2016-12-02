@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <allegro.h>
-#include "brickDrawing.h"
+#include "menu.h"
+
+volatile int exit_program;
 
 
 int main()
 {
-
    int resWidth, resHeigth;
 
 
@@ -36,23 +37,16 @@ int main()
 
 
   while(!(exit_program == TRUE))
-
   {
-  //INPUT
-    if(key[KEY_ESC]){
-      exit_program = 1;
-    }
-  //UPDATE
-    if(key[KEY_M]){
-      breakbrick(buffer, x, y);
-      x++;
-      y++;
-    }
-  //DRAW
-  }
+     //INPUT
+   if(key[KEY_ESC])
+      exit_program = TRUE;
+   menu_displayMenu(screen);
+	menu_updateMenu();
 
-  //FINALIZAÇÃO
-  destroy_bitmap(buffer);
+  }
   return 0;
 }
 END_OF_MAIN();
+
+//gcc -Wall <arquivo.c> -o programa -lalleg
