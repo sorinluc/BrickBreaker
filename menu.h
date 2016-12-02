@@ -16,3 +16,6 @@ void menu_newGameAction();
 void menu_optionsAction();
 void menu_quitAction();
 void menu_debugAction();
+
+/* Init bat buffer */
+int initBatBuffer();

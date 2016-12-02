@@ -1,7 +1,11 @@
 #include "menu.h"
 #include "functions.h"
+#include "bat.h"
+#include <allegro.h>
+#include "options.h"
 
 extern int exit_program;
+BITMAP *batBuffer;
 
 static const char* menuItems[] = 
 {
@@ -81,7 +85,28 @@ void menu_updateMenu()
 
 void menu_newGameAction()
 {
+	clear(screen);	
+	int newPos;
+	int gameOver = FALSE;
 	allegro_message("New game, new fame!\n");
+
+	if (!initBatBuffer())
+		allegro_message("Error : init batBuffer failed\n");
+
+	while(!gameOver)
+  {
+    if(key[KEY_ESC])
+      gameOver = TRUE;
+
+  	clear(batBuffer);
+  	newPos =updateBatPosition();
+    displayBat(batBuffer, newPos, BAT_SIZE_MEDIUM);
+    draw_sprite(screen, batBuffer, 0, SCREEN_H - BAT_Y_OFFSET);
+    rest(10);
+
+  }
+  	destroy_bitmap(batBuffer);
+
 	return;
 }
 
@@ -98,5 +123,17 @@ void menu_quitAction()
 
 void menu_debugAction()
 {
+	displayBat(screen, SCREEN_W/2, BAT_SIZE_MEDIUM);
 	return;
+}
+
+
+
+int initBatBuffer()
+{
+	batBuffer = create_bitmap(SCREEN_W, BAT_HEIGTH);
+	if (!batBuffer)
+		return FALSE;
+
+	return TRUE;
 }
