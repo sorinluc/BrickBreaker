@@ -17,6 +17,15 @@ struct bol {
 	int bolR;
   int psB;
   int psL;
+  int incA;
+  int incB;
+};
+
+struct bar {
+  int barX1;
+	int barY1;
+	int barX2;
+  int barY2;
 };
 
 struct colisao {
@@ -29,19 +38,22 @@ struct colisao {
 #define Pcol 3
 #define Ucol 20
 #define Ncol 22
-#define VEL 4
+#define VEL 1
 #define RAIO 20
 #define LARG 1920
-#define ALT 1080
+#define ALT 900
 #define MeB 10
 #define Blarg (((LARG - 40) / (Ncol)) - MeB)
 #define Balt ((((ALT/2) - 20) / (Nlinha)) - MeB)
 
 struct brickers brick[Ucol][Ulinha];
 struct bol bola;
+struct bar barra;
 struct colisao col [Ucol][Ulinha];
 
 void printBrick(BITMAP* buffer);
 void povoamento();
 void breakbrick();
 void bolinha();
+void barrinha();
+void barrabrick();
