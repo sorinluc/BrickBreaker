@@ -18,4 +18,4 @@ void menu_quitAction();
 void menu_debugAction();
 
 /* Init bat buffer */
-int initBatBuffer();
+int initBuffer();

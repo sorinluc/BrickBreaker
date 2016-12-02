@@ -1,11 +1,15 @@
+#include <allegro.h>
+#include <stdio.h>
+
 #include "menu.h"
 #include "functions.h"
 #include "bat.h"
-#include <allegro.h>
 #include "options.h"
+#include "brickDrawing.h"
 
 extern int exit_program;
-BITMAP *batBuffer;
+
+BITMAP *buffer;
 
 static const char* menuItems[] = 
 {
@@ -90,22 +94,26 @@ void menu_newGameAction()
 	int gameOver = FALSE;
 	allegro_message("New game, new fame!\n");
 
-	if (!initBatBuffer())
+	if (!initBuffer())
 		allegro_message("Error : init batBuffer failed\n");
+
 
 	while(!gameOver)
   {
     if(key[KEY_ESC])
       gameOver = TRUE;
 
-  	clear(batBuffer);
-  	newPos =updateBatPosition();
-    displayBat(batBuffer, newPos, BAT_SIZE_MEDIUM);
-    draw_sprite(screen, batBuffer, 0, SCREEN_H - BAT_Y_OFFSET);
+  	// bolinha();
+   //  breakbrick();
+   //  barrabrick();
+    //printBrick(buffer);
+
+  	newPos = updateBatPosition();
+  	displayBat(buffer, newPos);
     rest(10);
 
   }
-  	destroy_bitmap(batBuffer);
+  	destroy_bitmap(buffer);
 
 	return;
 }
@@ -123,16 +131,15 @@ void menu_quitAction()
 
 void menu_debugAction()
 {
-	displayBat(screen, SCREEN_W/2, BAT_SIZE_MEDIUM);
 	return;
 }
 
 
 
-int initBatBuffer()
+int initBuffer()
 {
-	batBuffer = create_bitmap(SCREEN_W, BAT_HEIGTH);
-	if (!batBuffer)
+	buffer = create_bitmap(SCREEN_W, SCREEN_H);
+	if (!buffer)
 		return FALSE;
 
 	return TRUE;

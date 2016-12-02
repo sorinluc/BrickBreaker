@@ -6,7 +6,7 @@ int options_batColor = 0;
 int options_batSize = BAT_SIZE_MEDIUM;
 int batPosition = 500;
 
-void displayBat(BITMAP* buffer, int xPos, int size)
+void drawBat(BITMAP* buffer, int xPos, int size)
 {
 	int color;
 	
@@ -40,24 +40,32 @@ void displayBat(BITMAP* buffer, int xPos, int size)
 
 	rectfill(
 		buffer,
-		(xPos-size/2), 0,
-		(xPos+size/2), BAT_HEIGTH,
+		(xPos), SCREEN_H - (BAT_Y_OFFSET + BAT_HEIGTH),
+		(xPos+size), SCREEN_H - BAT_Y_OFFSET,
 		color);
 
 	return;
 }
 
 
+void displayBat(BITMAP* buffer, int xPos)
+{
+	clear(buffer);
+    drawBat(buffer, xPos, options_batSize);
+    draw_sprite(screen, buffer, 0, SCREEN_H - BAT_Y_OFFSET);
+}
+
+
 int updateBatPosition()
 {	
 
-	if (key[KEY_LEFT] && ((batPosition - options_batSize/2) >= 0))
+	if (key[KEY_LEFT] && ((batPosition) >= 0))
 	{
 		batPosition -= BAT_MOVEMENT_STEP;
 		key[KEY_LEFT] = 0;
 	}
 
-	if (key[KEY_RIGHT] && ((batPosition + options_batSize/2) <= SCREEN_W))
+	if (key[KEY_RIGHT] && ((batPosition + options_batSize) <= SCREEN_W))
 	{
 		batPosition += BAT_MOVEMENT_STEP;
 		key[KEY_RIGHT] = 0;
