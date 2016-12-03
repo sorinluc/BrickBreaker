@@ -1,5 +1,4 @@
 #include <allegro.h>
-#include <stdio.h>
 #include "brickDrawing.h"
 #include "bat.h"
 #include "options.h"
@@ -126,7 +125,6 @@ void barrabrick(){
 
   int batYTopPosition = SCREEN_H - (BAT_Y_OFFSET + BAT_HEIGTH);
   int batDivisionStep = options_batSize / 7;
-  printf("%d\n", batDivisionStep);
 
 
   if((bola.bolY + RAIO) >= (batYTopPosition)){
