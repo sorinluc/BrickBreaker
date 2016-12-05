@@ -7,4 +7,4 @@ void loseLife();
 
 void gameOver();
 
-int score();
+// int score();

@@ -17,7 +17,7 @@ extern int options_batSize;
 
 /* DISPLAY CONSTANTS */
 #define BAT_Y_OFFSET 80
-#define BAT_HEIGTH 30
+#define BAT_HEIGHT 30
 
 /* Movement related */
 #define BAT_MOVEMENT_STEP 20

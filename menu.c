@@ -7,6 +7,7 @@
 #include "options.h"
 #include "brickDrawing.h"
 
+
 extern int exit_program;
 
 BITMAP *buffer;

@@ -39,7 +39,7 @@ void drawBat(BITMAP* buffer, int xPos, int size)
 
 	rectfill(
 		buffer,
-		(xPos), SCREEN_H - (BAT_Y_OFFSET + BAT_HEIGTH),
+		(xPos), SCREEN_H - (BAT_Y_OFFSET + BAT_HEIGHT),
 		(xPos+size), SCREEN_H - BAT_Y_OFFSET,
 		color);
 

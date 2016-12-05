@@ -1,7 +1,11 @@
 #include <allegro.h>
+#include <stdio.h>
 #include "brickDrawing.h"
 #include "bat.h"
 #include "options.h"
+#include "game.h"
+
+struct bol bola = {}; // contains garbage value until first init in povoamento
 
 void printBrick(BITMAP* buffer){
   int i, j;
@@ -61,6 +65,8 @@ void breakbrick(){
         if(col[i][j].setD == 1 || col[i][j].setE == 1){
           bola.psB = 1;
           brick[i][j].bit = 0;
+          score += 50;
+          printf("Score : %d\n", score);
         }
         col[i][j].setC = 1;
       }
@@ -71,6 +77,8 @@ void breakbrick(){
         if(col[i][j].setD == 1 || col[i][j].setE == 1){
           bola.psB = -1;
           brick[i][j].bit = 0;
+          score += 50;
+          printf("Score : %d\n", score);
         }
         col[i][j].setB = 1;
       }
@@ -81,6 +89,8 @@ void breakbrick(){
         if(col[i][j].setC == 1 || col[i][j].setB == 1){
           bola.psL = -1;
           brick[i][j].bit = 0;
+          score += 50;
+          printf("Score : %d\n", score);
         }
         col[i][j].setD = 1;
       }
@@ -91,6 +101,8 @@ void breakbrick(){
         if(col[i][j].setC == 1 || col[i][j].setB == 1){
           bola.psL = 1;
           brick[i][j].bit = 0;
+          score += 50;
+          printf("Score : %d\n", score);
         }
         col[i][j].setE = 1;
       }
@@ -111,6 +123,7 @@ void bolinha(){
     bola.psL = 1;
   }
   if((bola.bolY + RAIO) >= SCREEN_H){
+    loseLife();
     bola.psB = -1;
   }
   if((bola.bolY - RAIO) <= 0){
@@ -123,7 +136,7 @@ void bolinha(){
 
 void barrabrick(){
 
-  int batYTopPosition = SCREEN_H - (BAT_Y_OFFSET + BAT_HEIGTH);
+  int batYTopPosition = SCREEN_H - (BAT_Y_OFFSET + BAT_HEIGHT);
   int batDivisionStep = options_batSize / 7;
 
 

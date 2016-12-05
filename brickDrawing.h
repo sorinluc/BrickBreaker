@@ -41,7 +41,7 @@ struct colisao {
 // #define Balt ((((ALT/2) - 20) / (Nlinha)) - MeB)
 
 struct brickers brick[Ucol][Ulinha];
-struct bol bola;
+extern struct bol bola;
 struct colisao col [Ucol][Ulinha];
 
 void printBrick(BITMAP* buffer);
