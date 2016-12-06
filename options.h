@@ -22,4 +22,4 @@ extern int options_batSize;
 /* Movement related */
 #define BAT_MOVEMENT_STEP 20
 
-#define INITIAL_LIVE_COUNT 5
+#define INITIAL_LIVE_COUNT 4

@@ -2,6 +2,9 @@
 
 extern unsigned int lives;
 extern unsigned int score;
+extern int gameOverBool;
+
+void initGame();
 
 void loseLife();
 

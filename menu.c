@@ -6,6 +6,7 @@
 #include "bat.h"
 #include "options.h"
 #include "brickDrawing.h"
+#include "game.h"
 
 
 extern int exit_program;
@@ -40,13 +41,13 @@ void menu_displayMenu (BITMAP* target) {
 		if (i == menuSelectedIndex)
 		{
 			textprintf_ex(
-			target, font, SCREEN_W / 2, SCREEN_H / 4 + i * menuGap,
+			target, font, SCREEN_W / 2, SCREEN_H / 2 + i * menuGap,
 			menuSelectedItemColor, -1, menuItems[i], NULL);
 		}
 		else
 		{
 			textprintf_ex(
-			target, font, SCREEN_W / 2, SCREEN_H / 4 + i * menuGap,
+			target, font, SCREEN_W / 2, SCREEN_H / 2 + i * menuGap,
 			menuUnselectedItemColor, -1, menuItems[i], NULL);
 		}
 		
@@ -91,19 +92,21 @@ void menu_updateMenu()
 void menu_newGameAction()
 {
 	clear(screen);	
-	int gameOver = FALSE;
+
 	allegro_message("New game, new fame!\n");
+	initGame();
 
 	if (!initBuffer())
 		allegro_message("Error : init buffer failed\n");
 
-	povoamento();
 
-
-	while(!gameOver)
+	while(!gameOverBool)
   {
     if(key[KEY_ESC])
-      gameOver = TRUE;
+    {
+      gameOver();
+      key[KEY_ESC] = 0;
+    }
 
   	clear(buffer);
 
