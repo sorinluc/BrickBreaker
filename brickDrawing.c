@@ -140,7 +140,7 @@ void barrabrick(){
   int batDivisionStep = options_batSize / 7;
 
 
-  if((bola.bolY + RAIO) >= (batYTopPosition)){
+  if(((bola.bolY + RAIO) >= batYTopPosition) && ((bola.bolY + RAIO) <= batYTopPosition + BAT_HEIGHT)){
     if((bola.bolX >= batPosition) && (bola.bolX <= (batPosition + 40))){
       bola.psB = -1;
       bola.incA = 1;
